@@ -3,6 +3,8 @@ import { AppModule } from './app.module';
 import { ValidationPipe} from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { UsersModule } from './users/users.module';
+import { CompanyModule } from './company/company.module';
+import { VendorModule } from './vendor/vendor.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -26,7 +28,7 @@ async function bootstrap() {
   else{
 Options = new  DocumentBuilder().setTitle("captain ").addServer('/').setVersion('v1').addBearerAuth().build()
   }
- const document = SwaggerModule.createDocument(app,Options,{ignoreGlobalPrefix:true,include:[AppModule,UsersModule]});
+ const document = SwaggerModule.createDocument(app,Options,{ignoreGlobalPrefix:true,include:[AppModule,UsersModule,CompanyModule,VendorModule]});
  SwaggerModule.setup('/explorer',app,document);
 
  

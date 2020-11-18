@@ -1,13 +1,13 @@
-
 import * as mongoose from 'mongoose';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 import { BeforeInsert } from 'typeorm';
+//import { Company } from '../interfaces/company.interface';
 
-export type UserDocument = User & Document;
+export type CompanyDocument = Company & Document;
 
 @Schema()
-export class User {
+export class Company {
   @Prop()
   name: string;
 
@@ -29,7 +29,7 @@ export class User {
 
 }
 
-export const UserSchema = new mongoose.Schema({
+export const CompanySchema = new mongoose.Schema({
  name:String,
  email:String,
  password:String,

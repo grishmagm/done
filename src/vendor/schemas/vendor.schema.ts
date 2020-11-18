@@ -4,10 +4,10 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 import { BeforeInsert } from 'typeorm';
 
-export type UserDocument = User & Document;
+export type VendorDocument = Vendor & Document;
 
 @Schema()
-export class User {
+export class Vendor {
   @Prop()
   name: string;
 
@@ -29,7 +29,7 @@ export class User {
 
 }
 
-export const UserSchema = new mongoose.Schema({
+export const VendorSchema = new mongoose.Schema({
  name:String,
  email:String,
  password:String,
