@@ -9,9 +9,15 @@ import { GoogleStrategy } from '../google.strategy';
 import { AuthModule } from 'src/auth/auth.module';
 import { InvoiceModule } from './../invoice/invoice.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { JwtModule } from '@nestjs/jwt';
+import { jwtConstants } from './constants';
+import { LocalStrategy } from './local.strategy';
 @Module({
-  imports: [ MongooseModule.forFeature([{name:'User',schema:UserSchema}]),AuthModule ],
-  providers: [UsersService,GoogleStrategy],
+  imports: [ MongooseModule.forFeature([{name:'User',schema:UserSchema}]),AuthModule ,JwtModule.register({
+    secret: jwtConstants.secret,
+    signOptions: { expiresIn: '60s' },
+  }),],
+  providers: [UsersService,GoogleStrategy, LocalStrategy],
   exports: [UsersService],
   controllers: [ UserController]
 })

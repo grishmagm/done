@@ -2,7 +2,7 @@ import { Controller, Req, Post, UseGuards, Get, CacheInterceptor, UseInterceptor
 import { AppService } from './app.service';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
 //import { AuthGuard } from '@nestjs/passport';
-import { LocalAuthGuard } from './auth/local-auth.guard';
+import { LocalAuthGuard } from './users/local-auth.guard';
 import { AuthService } from './auth/auth.service';
 import {  MessagePattern,Payload} from '@nestjs/microservices';
 import { SendGridService } from '@ntegral/nestjs-sendgrid';

@@ -4,5 +4,11 @@ export interface Vendor{
     description?: string;
     email?:string;
     password?:string;
+     address?: string;
+     states?: string;
+     contact?: string;
+     balance?: string;
+     Gst?: string;
+
    
 }

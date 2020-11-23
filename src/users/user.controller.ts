@@ -5,6 +5,7 @@ import { ApiForbiddenResponse } from '@nestjs/swagger';
 import { UsersService } from '../users/users.service';
 import { User } from './interfaces/user.interface';
 import { AuthGuard } from '@nestjs/passport';
+import { LocalAuthGuard } from './local-auth.guard';
 
 
 
@@ -16,10 +17,17 @@ export class UserController {
       return this.usersService.findAll();
     }
     //}
-   // @Get(':id')
+    //@Post()
  //async findOne(@Param('id') id):Promise<User>{
-//return this.usersService.findOne(id);
-    //}
+//return this.usersService.findOne();
+   // }
+  
+    @Post('login')
+    async login(@Req() req) {
+      return this.usersService.login(req.name,req.password);
+      
+      console.log(req.user)
+    }
     @Get()
     @UseGuards(AuthGuard('google'))
     async googleAuth(@Req() req) {}
@@ -37,6 +45,11 @@ export class UserController {
         return this.usersService.create(CreateUserDto);
         console.log('post ', CreateUserDto);
     }
+    //@Post()
+    //find(@Body()CreateUserDto:CreateUserDto):Promise<User>{
+     //   return this.usersService.findOne(CreateUserDto);
+    //    console.log('post ', CreateUserDto);
+    //}
     @Delete(':id')
     delete(@Param('id') id ){
    return `Delete ${id}`

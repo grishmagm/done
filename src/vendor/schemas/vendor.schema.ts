@@ -12,15 +12,23 @@ export class Vendor {
   name: string;
 
   @Prop()
-  age: number;
+  address: String;
 
   @Prop()
-  breed: string;
+  states: string;
 
   @Prop()
   email: string;
   @Prop()
   password: string;
+
+  @Prop()
+  contact: Number;
+
+  @Prop()
+  balance: string;
+  @Prop()
+  Gst: string;
 
  @BeforeInsert()
  emailTOLowerCase(){
@@ -34,5 +42,11 @@ export const VendorSchema = new mongoose.Schema({
  email:String,
  password:String,
  confirmpass:String,
- qty:String
+ qty:String,
+ address: String,
+ states: String,
+ contact: String,
+ balance: String,
+ Gst: String
+
 });

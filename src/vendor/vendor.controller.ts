@@ -6,7 +6,7 @@ import { VendorService } from './vendor.service';
 export class VendorController {
     constructor(private readonly  VendorService:VendorService){}
 
-    @Get()
+    @Get('show')
     findAll():Promise<Vendor[]>{
       return this.VendorService.findAll();
     }
@@ -15,6 +15,7 @@ export class VendorController {
        
         return this.VendorService.create(CreateVendorDto);
     }
+    
     @Delete(':id')
     delete(@Param('id') id ){
    return `Delete ${id}`
