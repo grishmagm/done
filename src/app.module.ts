@@ -27,6 +27,7 @@ import { VendorModule } from './vendor/vendor.module';
 import { CacheModule , CacheInterceptor} from '@nestjs/common';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { InvoiceModule } from './invoice/invoice.module';
+import { ItemModule } from './item/item.module';
 
 
 
@@ -36,7 +37,7 @@ import { InvoiceModule } from './invoice/invoice.module';
   imports: [  UsersModule, MongooseModule.forRoot(config.mongoURI), CompanyModule, VendorModule,CacheModule.register({ttl: 5, // seconds
     max: 10,}),SendGridModule.forRoot({
        apiKey: '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',
-    }), InvoiceModule
+    }), InvoiceModule, ItemModule
     
 ],
   controllers: [AppController, UserController],
